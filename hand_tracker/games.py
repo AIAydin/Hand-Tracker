@@ -122,7 +122,16 @@ class ReactionGame:
                 self.state = "go"
                 self.go_at = now
         elif self.state == "go":
-            cv2.putText(frame_bgr, "GO!", (int(w * 0.45), int(h * 0.2)), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 255, 0), 3, cv2.LINE_AA)
+            cv2.putText(
+                frame_bgr,
+                "GO!",
+                (int(w * 0.45), int(h * 0.2)),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1.2,
+                (0, 255, 0),
+                3,
+                cv2.LINE_AA,
+            )
             if self._is_closed(frame_bgr, results):
                 rt = now - (self.go_at or now)
                 self.reaction = rt
