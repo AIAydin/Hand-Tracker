@@ -1,5 +1,8 @@
 # Hand Tracker (MediaPipe + OpenCV)
 
+[![CI](https://github.com/AIAydin/Hand-Tracker-Finger-Counter/actions/workflows/ci.yml/badge.svg)](https://github.com/AIAydin/Hand-Tracker-Finger-Counter/actions/workflows/ci.yml)
+
+
 A simple, modular hand tracker that uses your computer's camera in real time. It detects hand landmarks using Google's MediaPipe and overlays them on the live video feed with OpenCV.
 
 ## Features
