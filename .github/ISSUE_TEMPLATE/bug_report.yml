@@ -1,0 +1,49 @@
+name: Bug report
+description: Create a report to help us improve
+labels: [bug]
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, installation method
+      placeholder: e.g., macOS 14.2, Python 3.10.13, pip install -e .
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: What happened? What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Clear steps to reproduce the behavior
+      placeholder: |
+        1. Command executed
+        2. Observed behavior
+        3. Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots
+      description: Paste relevant logs, tracebacks, or screenshots
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues
+          required: true
+        - label: I can reproduce this with the latest main branch
+          required: false
+

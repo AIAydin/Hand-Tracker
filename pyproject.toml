@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hand-tracker"
+dynamic = ["version"]
+description = "Real-time hand tracking with MediaPipe + OpenCV; virtual mouse, slides control, and mini-games"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Hand Tracker Contributors" }
+]
+keywords = ["hand", "mediapipe", "opencv", "computer-vision", "gesture", "virtual-mouse"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Multimedia :: Graphics",
+  "Topic :: Scientific/Engineering :: Image Processing",
+]
+# Runtime dependencies
+dependencies = [
+  "numpy<2",
+  "protobuf<5",
+  "absl-py>=1.0,<2",
+  "attrs>=23,<25",
+  "opencv-python>=4.8,<5",
+  "mediapipe==0.10.21",
+]
+
+[project.optional-dependencies]
+# OS-level control backends (install either or both as needed)
+pyautogui = ["pyautogui>=0.9,<1.2"]
+pynput = ["pynput>=1.7,<2"]
+os-control = ["pyautogui>=0.9,<1.2", "pynput>=1.7,<2"]
+# Developer tools
+dev = ["pytest>=7", "flake8>=6"]
+
+[project.scripts]
+hand-tracker = "hand_tracker.__main__:main"
+hand-tracker-app = "hand_tracker.app:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["hand_tracker*"]
+
+[tool.setuptools.dynamic]
+version = { attr = "hand_tracker.__init__.__version__" }
+
