@@ -106,7 +106,6 @@ def main(argv=None):
                             x, y = pts[0]
                             draw_label(frame, f"{label}: {count}", (x, max(20, y - 10)))
 
-
             # Mode-specific updates
             if args.mode == "vmouse" and vm is not None:
                 vm.update(frame, results)

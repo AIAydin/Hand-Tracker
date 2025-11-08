@@ -33,7 +33,12 @@ class Camera:
 
         if not self.cap.isOpened():
             raise RuntimeError(
-                f"Could not open camera {index}. If on macOS, ensure 'Python' has Camera access in System Settings → Privacy & Security → Camera, close other apps using the camera, or try a different index with --camera 1."
+                (
+                    f"Could not open camera {index}. "
+                    "If on macOS, ensure 'Python' has Camera access in System Settings "
+                    "→ Privacy & Security → Camera, close other apps using the camera, "
+                    "or try a different index with --camera 1."
+                )
             )
 
     def read(self):

@@ -1,11 +1,10 @@
 import random
 import time
-from typing import Optional, Tuple
+from typing import Optional
 
 import cv2
 
 from .gestures import count_fingers_up
-from .hands import landmarks_px
 from .overlay import draw_label
 
 
@@ -75,7 +74,16 @@ class RPSGame:
         elif self.state == "show_result":
             msg = f"You: {self.player} | CPU: {self.cpu}  Score {self.score_player}-{self.score_cpu}"
             # big center text
-            cv2.putText(frame_bgr, msg, (20, int(h * 0.5)), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (50, 220, 50), 2, cv2.LINE_AA)
+            cv2.putText(
+                frame_bgr,
+                msg,
+                (20, int(h * 0.5)),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.9,
+                (50, 220, 50),
+                2,
+                cv2.LINE_AA,
+            )
             if now >= self.round_end:
                 self.countdown_end = now + 3.0
                 self.state = "countdown"
@@ -114,7 +122,16 @@ class ReactionGame:
                 self.state = "go"
                 self.go_at = now
         elif self.state == "go":
-            cv2.putText(frame_bgr, "GO!", (int(w * 0.45), int(h * 0.2)), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 255, 0), 3, cv2.LINE_AA)
+            cv2.putText(
+                frame_bgr,
+                "GO!",
+                (int(w * 0.45), int(h * 0.2)),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1.2,
+                (0, 255, 0),
+                3,
+                cv2.LINE_AA,
+            )
             if self._is_closed(frame_bgr, results):
                 rt = now - (self.go_at or now)
                 self.reaction = rt
