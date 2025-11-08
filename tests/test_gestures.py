@@ -98,4 +98,3 @@ def test_right_thumb_up():
     cnt, states = count_fingers_up(img, hl, "Right")
     assert states["Thumb"] is True
     assert cnt == 1
-

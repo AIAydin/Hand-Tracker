@@ -1,6 +1,6 @@
 import time
 from collections import deque
-from typing import Deque, Optional, Tuple
+from typing import Deque, Tuple
 
 from .gestures import count_fingers_up
 from .hands import landmarks_px
@@ -76,7 +76,10 @@ class SlideController:
         label = handed[0].classification[0].label if handed else "Hand"
         cnt, states = count_fingers_up(frame_bgr, hand_landmarks, label)
 
-        two_fingers = states.get("Index") and states.get("Middle") and not states.get("Ring") and not states.get("Pinky")
+        two_fingers = (
+            states.get("Index") and states.get("Middle")
+            and not states.get("Ring") and not states.get("Pinky")
+        )
         pts = landmarks_px(frame_bgr, hand_landmarks)
         if not pts:
             self.samples.clear()

@@ -1,8 +1,6 @@
 import math
-import time
 from typing import Optional, Tuple
 
-import cv2
 
 from .hands import landmarks_px
 from .overlay import draw_label

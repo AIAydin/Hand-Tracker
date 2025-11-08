@@ -14,4 +14,3 @@ __all__ = [
     "launcher",
 ]
 __version__ = "0.1.0"
-
